@@ -28,14 +28,20 @@
                 context.ProductCategories.Where(pc => pc.Title == "Color Pen").Count() == 0 &&
                 context.ProductCategories.Where(pc => pc.Title == "Rubbed Eraser").Count() == 0)
             {
-                context.ProductCategories.AddOrUpdate(new ProductCategory 
-                            { Title = "Pen", Description = "A Pen" });
-                context.ProductCategories.AddOrUpdate(new ProductCategory 
-                            { Title = "Pencil", Description = "A Pencil" });
-                context.ProductCategories.AddOrUpdate(new ProductCategory 
-                            { Title = "Color Pen", Description = "A Colored Pen" });
-                context.ProductCategories.AddOrUpdate(new ProductCategory 
-                            { Title = "Rubbed Eraser", Description = "A Rubbed Eraser" });
+                // Update
+                //var pcPen = context.ProductCategories.Where(pc => pc.Title == "Pen").SingleOrDefault();
+                //pcPen.Title = "Pen New";
+                //context.ProductCategories.AddOrUpdate(pcPen);
+
+                // Add
+                context.ProductCategories.Add(new ProductCategory
+                        { Title = "Pen", Description = "A Pen" });
+                context.ProductCategories.Add(new ProductCategory
+                        { Title = "Pencil", Description = "A Pencil" });
+                context.ProductCategories.Add(new ProductCategory
+                        { Title = "Color Pen", Description = "A Colored Pen" });
+                context.ProductCategories.Add(new ProductCategory
+                        { Title = "Rubbed Eraser", Description = "A Rubbed Eraser" });
                 context.SaveChanges();
             }
 
@@ -56,7 +62,7 @@
                         Description = "Awesome Pen description",
                         Price = 28,
                         Category = pCategory,
-                        ProductCategoryId = pCategory.Id
+                        
                     });
 
                     pCategory = context.ProductCategories.Where(productCategory => productCategory.Title == "Pencil")
@@ -67,7 +73,7 @@
                         Description = "Awesome Pencil description",
                         Price = 20,
                         Category = pCategory,
-                        ProductCategoryId = pCategory.Id
+                        
                     });
 
                     pCategory = context.ProductCategories.Where(productCategory => productCategory.Title == "Color Pen")
@@ -78,7 +84,7 @@
                         Description = "Awesome Color Pen description",
                         Price = 32,
                         Category = pCategory,
-                        ProductCategoryId = pCategory.Id
+                        
                     });
 
                     pCategory = context.ProductCategories.Where(productCategory => productCategory.Title == "Rubbed Eraser")
@@ -89,7 +95,7 @@
                         Description = "Awesome Rubbed Eraser description",
                         Price = 9,
                         Category = pCategory,
-                        ProductCategoryId = pCategory.Id
+                        
                     });
                 }
                 context.SaveChanges();
@@ -126,10 +132,10 @@
                     context.SaveChanges();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine("Already existed Customers");
-                Console.WriteLine(e.InnerException.InnerException.Message);
+                Console.WriteLine(e.Message);
+                //Console.WriteLine(e.InnerException.InnerException.Message);
             }
             finally
             {

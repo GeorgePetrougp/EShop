@@ -53,9 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202212071918516_InitialCreate.cs" />
-    <Compile Include="Migrations\202212071918516_InitialCreate.designer.cs">
-      <DependentUpon>202212071918516_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202212081643440_InitialCreate.cs" />
+    <Compile Include="Migrations\202212081643440_InitialCreate.designer.cs">
+      <DependentUpon>202212081643440_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202212080514556_CustomerOrdersMultiple.cs" />
     <Compile Include="Migrations\202212080514556_CustomerOrdersMultiple.designer.cs">
@@ -84,8 +84,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202212071918516_InitialCreate.resx">
-      <DependentUpon>202212071918516_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202212081643440_InitialCreate.resx">
+      <DependentUpon>202212081643440_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212080514556_CustomerOrdersMultiple.resx">
       <DependentUpon>202212080514556_CustomerOrdersMultiple.cs</DependentUpon>

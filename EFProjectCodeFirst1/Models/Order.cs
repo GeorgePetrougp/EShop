@@ -19,8 +19,8 @@ namespace EFProjectCodeFirst1.Models
         public double TotalPrice { get; set; }
         public int ProductQuantity { get; set; }
         public double ProductPrice { get; set; }
-        public Product Product { get; set; }
-        public Customer Customer { get; set; }  
+        public Product Product { get; set; } //Navigation Property
+        public Customer Customer { get; set; }  //Navigation Property
 
     }
 }

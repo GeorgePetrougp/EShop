@@ -64,11 +64,17 @@ namespace EFProjectCodeFirst1
 
 
             var productPen = appDBContext.Products.Where(p => p.Title == "Awesome Pen").SingleOrDefault();
-            appDBContext.Entry(productPen).Reference(p => p.Category).Load();
-            Console.WriteLine(productPen.Category.Id);
-            var productPencil = appDBContext.Products.Where(p => p.Title == "Awesome Pencil").SingleOrDefault();
-            appDBContext.Entry(productPencil).Reference(p => p.Category).Load();
-            Console.WriteLine(productPencil.Category.Id);
+            if(appDBContext.Entry(productPen).Reference(product => product.Category).IsLoaded)
+            {
+                Console.WriteLine(productPen.Category.Id);
+            }
+            else
+            {
+                appDBContext.Entry(productPen).Reference(product => product.Category).Load();
+                Console.WriteLine(productPen.Category.Id);
+            }
+            //var productPencil = appDBContext.Products.Where(p => p.Title == "Awesome Pencil").SingleOrDefault();
+            //Console.WriteLine(productPencil.Category.Id);
 
             var customerGeorge = appDBContext.Customers.Where(c => c.Email.Contains("paspa@hotmail.com")).SingleOrDefault();
             var listOfProductData = new List<ProductData>();
